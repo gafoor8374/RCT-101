@@ -1,7 +1,8 @@
-// import React ,{useReducer} from 'react';
+import React ,{useReducer,useContext} from 'react';
 import './App.css';
 import { Body } from './components/Body';
 import { Navbar } from './components/Navbar';
+import {ThemeContext} from "./context/ThemeContext"
 
 // const reducer =(state,action) => {
 //   switch (action.type) {
@@ -20,13 +21,14 @@ import { Navbar } from './components/Navbar';
 // }
 
 function App() {
+const {isLight} = useContext(ThemeContext)
   // const [counter,setCounter]= useState(0)
 
   // const [counter,dispatch] = useReducer(reducer,0)
   // const [state, dispatch] = useReducer(reducer, {counter:1});
 
   return (
-    <div className="App">
+    <div className={`App ${isLight ?"light":"dark"}`}>
       {/* Counter: {counter}
       <button onClick={() => setCounter(counter + 1)}>+</button>
       <button onClick={() => setCounter(counter - 1)}>-</button> */}
